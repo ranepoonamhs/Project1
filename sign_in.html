@@ -46,6 +46,27 @@
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script>
+    const AllUsers = new Map([
+    ["poonam","admin123"],
+    ["priya","priya@123"],
+    ["shriya","shriya@123"]
+]);
+
+var currentUser="";
+
+AllBlogData=new Array();
+class BlogData
+{
+    constructor (fname,email,mno,title,content,category,nickname){
+        this.fname = fname;
+        this.email=email;
+        this.mno=mno;
+        this.nickname=nickname;
+        this.title = title;
+        this.content = content;
+        this.category=category;
+    }
+}
    function onSignIn()
         {
             let uName = document.forms["signInForm"]["uName"].value;
