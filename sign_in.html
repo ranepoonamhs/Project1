@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+<body class="bg-primary bg-opacity-25">
+    <nav class="navbar navbar-expand-lg bg-primary bg-opacity-25">
+        <div class="container-fluid">
+            <a class="navbar-brand" >Poonams Blog Space</a>
+           
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbardropdown" >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbardropdown">
+                <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                    <li class="nav-item ml-2"><a class="nav-link active" href="blog.html">Home</a></li>
+            </div>
+            
+        </div>
+    </nav>
+    <div class="container bg-transparent ">
+        <div class="container">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-10 col-md-8 col-lg-6">
+                    <form action="post" class="row g-3 " name="signInForm">
+                        <fieldset style="width: 400px;" >
+                            <legend >Sign Up</legend>
+                    <label for="uname" class="formclass ">First Name:</label>
+                    <input type="text" class="formclass mt-2" name="uName" placeholder="Username" id="uName" value="Poonam"><br>
+                    <label for="pwd" class="formclass  mt-2">Last Name:</label></td>
+                    <input type="password" class="formclass mt-2" name="pwd" placeholder="Password" id="pwd" value="admin123"><br>
+                    <input type="button" class="btn btn-primary mt-2" value="Cancel" onclick="onCancel()" >
+                    <input type="button" class="btn btn-primary mt-2" value="Submit" onclick="onSignIn()">
+                            </div>
+                        </fieldset>
+                </form>
+    
+                </div>
+            </div>
+        </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script>
+   function onSignIn()
+        {
+            let uName = document.forms["signInForm"]["uName"].value;
+            let pwd = document.forms["signInForm"]["pwd"].value;
+            if(uName != "" && pwd.length==8 )
+            {
+                var password=AllUsers.get(uName.toLowerCase());
+                if(password=(pwd))
+                {
+                    alert("Welcome " + uName + "!!!");
+                    localStorage.setItem('currentUser', uName);    
+                    
+                    window.location.href = "blog.html";
+                    
+                }
+                else
+                {
+                    alert("Login Failed.");
+                }
+                
+
+            }
+            else
+                {
+                    alert("Login Failed.");
+                }
+        }
+
+        function onCancel()
+        {
+            window.location.href = "blog.html";
+        }
+   
+</script>
+</body>
+</html>
